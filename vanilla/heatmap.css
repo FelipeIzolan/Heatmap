@@ -1,0 +1,32 @@
+heat-map {
+  --level0: #EFF2F5;
+  --level1: #ACEEBB;
+  --level2: #4AC26B;
+  --level3: #2DA44E;
+  --level4: #116329;
+}
+
+heat-map td {
+  width: 1em;
+  height: 1em;
+  background: var(--level4); /* data-value > 6 */
+}
+
+heat-map td[data-value="0"] {
+  background: var(--level0);
+}
+
+heat-map td[data-value="1"],
+heat-map td[data-value="2"] {
+  background: var(--level1);
+}
+
+heat-map td[data-value="3"],
+heat-map td[data-value="4"] {
+  background: var(--level2);
+}
+
+heat-map td[data-value="5"],
+heat-map td[data-value="6"] {
+  background: var(--level3);
+}
