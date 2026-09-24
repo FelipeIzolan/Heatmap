@@ -1,8 +1,6 @@
 class Heatmap extends HTMLElement {
   static observedAttributes = ['year'];
 
-  map = new Map();
-  
   constructor() {
     super();
     this.table = document.createElement('table');
@@ -22,11 +20,11 @@ class Heatmap extends HTMLElement {
   }
 
   get(date) {
-    return this.map.get(date);
+    return this.body.querySelector(`[data-date='${date}']`);
   }
 
   set(date, value) {
-    let el = this.map.get(date);
+    let el = this.body.querySelector(`[data-date='${date}']`);
     if (el) {
       el.dataset.value = value;
     }
@@ -38,7 +36,6 @@ class Heatmap extends HTMLElement {
 
   attributeChangedCallback(name, prev, curr) {
     if (name == 'year') {
-      this.map.clear();
       let base = new Date(curr);
       base.setDate(base.getDate() - (base.getDay() + 6) % 7);
   
@@ -49,9 +46,7 @@ class Heatmap extends HTMLElement {
           let el = this.body.children[r].children[c];
           let d = new Date(w);
           d.setDate(d.getDate() + c * 7);
-          let date = d.toISOString().split('T')[0];
-          this.map.set(date, el);
-          el.dataset.date = date;
+          el.dataset.date = d.toISOString().split('T')[0];
           el.dataset.value = 0;
         }
       }
