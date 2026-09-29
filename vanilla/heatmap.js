@@ -63,7 +63,8 @@ class Heatmap {
     }
   }
 
-  constructor(table, options = HEATMAP) {
+  constructor(table, options = {}) {
+    options = {...HEATMAP, ...options};
     table.classList.add('heatmap');
 
     this.table = table;
