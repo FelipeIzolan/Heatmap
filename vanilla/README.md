@@ -6,7 +6,7 @@ A heatmap inspired by GitHub’s contribution graph.
 
 ```html
 <link rel="stylesheet" href="heatmap.css">
-<script src="heatmap.js"></script>
+<script src="heatmap.umd.js"></script>
 ```
 
 ```js

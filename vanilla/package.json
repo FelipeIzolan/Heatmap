@@ -1,0 +1,29 @@
+{
+  "name": "vanilla-heatmap",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "dist/heatmap.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/node": "^26.6.3",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  },  
+  "keywords": [
+    "heatmap"
+  ],
+  "author": "Felipe Izolan",
+  "license": "MIT",
+  "description": "Heatmap inspired by GitHub’s contribution graph",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FelipeIzolan/Heatmap.git"
+  }
+}

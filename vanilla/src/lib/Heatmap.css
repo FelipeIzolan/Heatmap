@@ -12,6 +12,11 @@
   background: var(--level4); /* data-value > 6 */
 }
 
+.heatmap thead,
+.heatmap tbody tr td:first-child {
+  font-size: 0.75em;
+}
+
 .heatmap td[data-value='0'] {
   background: var(--level0);
 }
