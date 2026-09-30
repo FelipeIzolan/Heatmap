@@ -1,8 +1,10 @@
 # Heatmap
 
-A heatmap inspired by GitHub’s contribution graph. (~2kB)
+<img width="1087" height="157" alt="image" src="https://github.com/user-attachments/assets/d84414b6-bf61-46ce-8d60-ffbc6f2822f8" />
 
-# 🚀 Getting Started
+Heatmap inspired by GitHub’s contribution graph. (~2kB)
+
+## 🚀 Getting Started
 
 ```html
 <link rel="stylesheet" href="heatmap.css">
