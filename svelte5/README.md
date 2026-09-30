@@ -1,8 +1,8 @@
 #   svelte5-heatmap
 
-![image](https://github.com/user-attachments/assets/f1ada592-c3ac-445f-a664-558010203500)
+<img width="1087" height="157" alt="image" src="https://github.com/user-attachments/assets/d84414b6-bf61-46ce-8d60-ffbc6f2822f8" />
 
-A Svelte 5 heatmap component inspired by GitHub’s contribution graph
+Svelte 5 Heatmap component inspired by GitHub’s contribution graph
 
 ##  Getting Started
 
@@ -12,69 +12,55 @@ npm install svelte5-heatmap
 
 ```svelte
 <script>
-  import Heatmap from "svelte5-heatmap";
-
-  let data = $state<{ [key: string]: number }>({});
-  let year = 2025;
-  function fillMap() {
-    let map: { [key: string]: number } = {};
-    let max = Math.round(Math.random() * 24) + 8;
-    for (let m = 0; m <= 12; m++) {
-      for (let d = 0; d <= 31; d++) {
-        let key = `${year}-${("0" + m).slice(-2)}-${("0" + d).slice(-2)}`;
-        map[key] = Math.round(Math.random() * max);
-      }
-    }
-    data = map;
-  }
-  fillMap();
+    import Heatmap from "svelte5-heatmap";
+    let year = 2026;
+    let data  = {
+        '2026-02-12': 2,
+        '2026-02-13': 4,
+        '2026-02-14': 6,
+        '2026-02-15': 8,
+        '2026-02-16': 10
+    };
 </script>
 
-<div style="font-size:12px">
+<div>
   <Heatmap
     {data}
     {year}
     onclick={(e) => alert(`${e.target.dataset.date} | ${e.target.dataset.value}`)}
   />
 </div>
-```
-## ⚙️ Props
 
--   **`data`** (object, **required**)  
+```
+
+## 📄 Documentation
+
+-   **data** *(object, required)*:
     An object containing chart data where each key is a date in ISO format (`YYYY-MM-DD`) and the value is a number.  
     Example: `{ '2025-01-02': 5 }`
 
--   **`colors`** (array, optional)  
-    An array of color values used for the heatmap cells, ordered from the lowest to highest value.  
-    _Default:_ GitHub's contribution graph colors.
+-   **year** *(number, year)*
 
--   **`className`** (string, optional)  
-    Custom CSS class name applied to the heatmap. 
-    _Default:_ `"Heatmap"`
+-   **color** *(object, optional)*:
+    - **max** *(number, required)*: The max value to color be the strongest.
+    - **pallete** *(string[5], required)*: Array of 5 hex colors.
 
--   **`year`** (number, optional)  
-    The year to display in the heatmap.  
-    _Default:_ Current year.
-    
--   **`lday`** (boolean, optional)  
-    Whether to display day-of-week labels on the left side.  
-    _Default:_ `true`
-    
--   **`lmonth`** (boolean, optional)  
-    Whether to display month labels above the calendar.  
-    _Default:_ `true`
-    
--   **`onclick`** (function, optional)  
-    Function to be called when a heatmap cell is clicked.
-    
--   **`onmouseover`** (function, optional)  
-    Function to be called when the mouse hovers over a cell.
-    
--   **`onmouseout`** (function, optional)  
-    Function to be called when the mouse leaves a cell.
+-   **lday** *(string[7] | false, optional)*:
+    Array of 7 days labels. If set to false, no labels are added.
 
-> [!NOTE]
-> The heatmap size is determined by the parent element's font size, as it uses **em** units.
+-   **lmonth** *(string[12] | false, optional)*:
+    Array of 12 months labels. If set to false, no labels are added.
+
+-   **className** *(string, optional)*
+
+-   **onclick** *(function, optional)*:  
+    Heatmap cell onclick event.
+
+-   **onmouseover** *(function, optional)*:
+    Heatmap cell onmouseover event.
+
+-   **onmouseout** *(function, optional)*:
+    Heatmap cell onmouseout event.
 
 ## 📜 License
 

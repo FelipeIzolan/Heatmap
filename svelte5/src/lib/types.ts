@@ -7,7 +7,7 @@ export type Props = {
   year?: number,
   color?: {
     max: number,
-    pallete: [
+    palette: [
       Color,
       Color,
       Color,

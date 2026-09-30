@@ -6,7 +6,7 @@
     year = new Date().getFullYear(),
     color = {
       max: 10,
-      pallete: [
+      palette: [
         '#EFF2F5',
         '#ACEEBB',
         '#4AC26B',
@@ -38,6 +38,9 @@
       'Sun'
     ],
     className = 'heatmap',
+    onclick,
+    onmouseout,
+    onmouseover
   }: Props = $props();
   
   // --
@@ -67,7 +70,7 @@
     base.setDate(base.getDate() + day_of_week + day);
     let date = toISO(base);
     let value = data[date] ?? 0;
-    let hex = value < color.max ? color.pallete[Math.floor((value / color.max) * 5)] : color.pallete[4];
+    let hex = value < color.max ? color.palette[Math.ceil((value / color.max) * 3)] : color.palette[4];
     base.setDate(base.getDate() - day_of_week - day);
     return {
       'data-date': date,
@@ -108,7 +111,12 @@
       <td style='font-size:0.75em'>{lday[day_of_week]}</td>
     {/if}
     {#each { length: 53 }, day_index}
-      <td {...getAttributes(base, day_of_week,  day_index * 7)}></td>
+      <td
+        {onclick}
+        {onmouseout}
+        {onmouseover}
+        {...getAttributes(base, day_of_week,  day_index * 7)}
+      ></td>
     {/each}
     </tr>
   {/each}
