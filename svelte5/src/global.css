@@ -1,11 +1,15 @@
-* {
-  margin: 0;
-  padding: 0;
+body {
+  font-size: 16px;
+  font-family: monospace;
 }
 
-body {
-  width: 100%;
+#app {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.heatmap {
+  margin: 1em 0;
 }
