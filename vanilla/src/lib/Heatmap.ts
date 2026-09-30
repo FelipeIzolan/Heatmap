@@ -9,7 +9,7 @@ export default class Heatmap {
   constructor(table: HTMLTableElement, options: Options = {}) {
     table.classList.add('heatmap');
  
-    let {
+    const {
       year = new Date().getFullYear(),
       lmonth = [
         'Jan',
@@ -52,7 +52,7 @@ export default class Heatmap {
       for (let i = 0; i < 12; i++) {
         let element = document.createElement('td');
         element.innerText = lmonth[i];
-        element.setAttribute('colspan', i % 3 == 0 ? '5' : '4');
+        element.colSpan = i % 3 == 0 ? 5 : 4;
         child.append(element);
       }
 
@@ -105,7 +105,7 @@ export default class Heatmap {
       for (let col = 0; col < 53; col++) {
         let element = this.body.children[row].children[col + pad] as HTMLTableCellElement;
         
-        element.dataset.date = base.toJSON().split('T')[0];
+        element.dataset.date = base.toJSON().slice(0, 10);
         element.dataset.value = '0';
 
         base.setDate(base.getDate() + 7);

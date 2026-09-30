@@ -1,6 +1,6 @@
 # Heatmap
 
-A heatmap inspired by GitHub’s contribution graph.
+A heatmap inspired by GitHub’s contribution graph. (~2kB)
 
 # 🚀 Getting Started
 
@@ -37,3 +37,9 @@ document.body.append(table);
   - **date** *(string)*: ISO date.
 - `Heatmap.setYear(year)`:
   - **year** *(number)*
+
+### Disable Labels
+
+```js
+let heatmap = new Heatmap(table, { lday: false, lmonth: false });
+```
