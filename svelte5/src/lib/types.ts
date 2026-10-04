@@ -3,7 +3,7 @@ import type { MouseEventHandler } from "svelte/elements";
 type Color = `#${string}`;
 
 export type Props = {
-  data: { [key: string]: number },
+  data: Record<string, number>,
   year?: number,
   color?: {
     max: number,

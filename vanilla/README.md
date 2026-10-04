@@ -39,9 +39,3 @@ document.body.append(table);
   - **date** *(string)*: ISO date.
 - `Heatmap.setYear(year)`:
   - **year** *(number)*
-
-### Disable Labels
-
-```js
-let heatmap = new Heatmap(table, { lday: false, lmonth: false });
-```

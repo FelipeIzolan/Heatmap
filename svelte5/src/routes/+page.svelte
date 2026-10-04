@@ -2,22 +2,28 @@
   import "../global.css";
   import Heatmap from "$lib/Heatmap.svelte";
 
-  let onclick = (e: any) => alert(e.target.dataset.date + ' ' + e.target.dataset.value);
+  function onclick(e: MouseEvent) {
+    let target = e.target as HTMLTableCellElement;
+    alert(`${target.dataset.date}\n${target.dataset.value}`);
+  }
 
-  let year = $state(new Date().getFullYear());
-  let data = $derived.by(() => {
-    function format(x: number) {
-      return x < 10 ? '0' + x : '' + x;
-    }
+  function format(x: number) {
+    return x < 10 ? '0' + x : '' + x;
+  }
 
-    let map: { [key: string]: number } = {};
-    for (let month = 0; month < 12; month++) {
-      for (let day = 0; day < 30; day++) {
-        map[`${year}-${format(month + 1)}-${format(day + 1)}`] = Math.floor(Math.random() * 11);
-      }
+  let year = new Date().getFullYear();
+  let data: Record<string, number> = $state({});
+  for (let month = 0; month < 12; month++) {
+    for (let day = 0; day < 30; day++) {
+      data[`${year}-${format(month + 1)}-${format(day + 1)}`] = Math.floor(Math.random() * 11);
     }
-    return map;
-  });
+  }
+ 
+  setTimeout(() => {
+    for (let i = 0; i < 30; i++) {
+      data[`${year}-02-${format(i)}`] = 0;
+    }
+  }, 2000);
 </script>
 
 <svelte:head>

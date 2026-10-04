@@ -14,13 +14,13 @@ npm install svelte5-heatmap
 <script>
     import Heatmap from "svelte5-heatmap";
     let year = 2026;
-    let data  = {
+    let data = $state({
         '2026-02-12': 2,
         '2026-02-13': 4,
         '2026-02-14': 6,
         '2026-02-15': 8,
         '2026-02-16': 10
-    };
+    });
 </script>
 
 <div>

@@ -51,24 +51,10 @@
     base.setDate(base.getDate() - delta);
     return base;
   };
-
-  function toISO(date: Date) {
-    let year = date.getFullYear();
-    let month: string | number = date.getMonth() + 1;
-    let day: string | number = date.getDate();
-    
-    if (month < 10)
-      month = '0' + month;
-
-    if (day < 10)
-      day = '0' + day;
-
-    return `${year}-${month}-${day}`;
-  }
   
   function getAttributes(base: Date, day_of_week: number, day: number) {
     base.setDate(base.getDate() + day_of_week + day);
-    let date = toISO(base);
+    let date = base.toISOString().split('T')[0];
     let value = data[date] ?? 0;
     let hex = value < color.max ? color.palette[Math.ceil((value / color.max) * 3)] : color.palette[4];
     base.setDate(base.getDate() - day_of_week - day);
