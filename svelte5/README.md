@@ -33,33 +33,34 @@ npm install svelte5-heatmap
 
 ```
 
-## 📄 Documentation
+## 📄 Props
 
--   **data** *(object, required)*:
-    An object containing chart data where each key is a date in ISO format (`YYYY-MM-DD`) and the value is a number.  
+-   **data** *(object, required)*:\
+    An object containing chart data where each key is a date in ISO format (`YYYY-MM-DD`) and the value is a number.\
     Example: `{ '2025-01-02': 5 }`
 
--   **year** *(number, year)*
+-   **year** *(number, optional)*
+-   **color** *(object, optional)*:  
+    -    **max** *(number, required)*:\
+          The max value to color be the strongest.
+    -    **pallete** *(string[5], required)*:\
+          Array of 5 hex colors.
 
--   **color** *(object, optional)*:
-    - **max** *(number, required)*: The max value to color be the strongest.
-    - **pallete** *(string[5], required)*: Array of 5 hex colors.
-
--   **lday** *(string[7] | false, optional)*:
+-   **lday** *(string[7] | false, optional)*:\
     Array of 7 days labels. If set to false, no labels are added.
 
--   **lmonth** *(string[12] | false, optional)*:
+-   **lmonth** *(string[12] | false, optional)*:\
     Array of 12 months labels. If set to false, no labels are added.
 
 -   **className** *(string, optional)*
 
--   **onclick** *(function, optional)*:  
+-   **onclick** *(function, optional)*:\
     Heatmap cell onclick event.
 
--   **onmouseover** *(function, optional)*:
+-   **onmouseover** *(function, optional)*:\
     Heatmap cell onmouseover event.
 
--   **onmouseout** *(function, optional)*:
+-   **onmouseout** *(function, optional)*:\
     Heatmap cell onmouseout event.
 
 ## 📜 License
